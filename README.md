@@ -120,3 +120,18 @@ This decision aims to keep the project accessible and straightforward.
 ---
 
 Made with ❤️ by [@TruongCongTri](https://github.com/TruongCongTri)
+
+![Home-Desktop](https://github.com/user-attachments/assets/bbbee4be-df55-4883-ae96-9358f2d4bc83) ![Home-Mobile](https://github.com/user-attachments/assets/9b5d6b3f-b85a-4e6c-ac23-06a30fdee3a9)
+![Login-Desktop](https://github.com/user-attachments/assets/0c5c8bd7-8301-49da-9cbf-b9d541154c5f) ![Login-Mobile](https://github.com/user-attachments/assets/a5374ac7-fa5f-43e4-a8dc-47a3eeffe28c)
+![Search-Desktop](https://github.com/user-attachments/assets/5105221f-8df1-46b6-bb9b-a07f28a40fe1) ![Search-Mobile](https://github.com/user-attachments/assets/3dd13245-4a9c-4feb-a96f-516f20eb9767) ![Search-Input-Mobile](https://github.com/user-attachments/assets/23e3f730-037a-4983-a38b-0ec852f44cd1)
+![Profile-Desktop](https://github.com/user-attachments/assets/3382c7ab-7649-467f-b237-6694319ede43) ![Profile-Mobile](https://github.com/user-attachments/assets/fe71711a-d557-4ce3-a549-ee4998026173)
+![Favorite-Desktop](https://github.com/user-attachments/assets/8c73e408-b07d-4910-8a78-177556f64c90) ![Favorite-Mobile](https://github.com/user-attachments/assets/b4dadba8-21b2-4089-9618-7cf28c5722fd)
+
+
+
+
+
+
+
+
+
