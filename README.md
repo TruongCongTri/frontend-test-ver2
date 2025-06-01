@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📦 Frontend Test
 
-## Getting Started
+A modern frontend application built with [Next.js](https://nextjs.org/) (App Router) and Tailwind CSS. This project serves as a demonstration of a clean, scalable architecture using the latest features of the Next.js framework.
 
-First, run the development server:
+## 🚀 Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+👉 [frontend-test-ashy-ten.vercel.app](https://frontend-test-ashy-ten.vercel.app)
+
+---
+
+## 📁 Project Structure
+
+The project is organized to promote clarity and maintainability:
+
+```
+frontend-test/
+├── app/                # App Router pages and layouts
+│   └── page.js         # Main entry point
+├── components/         # Reusable UI components
+├── constant/           # Static values and configuration constants
+├── libs/               # Shared libraries or custom hooks
+├── public/             # Static assets (images, icons, etc.)
+├── utils/              # Utility functions
+├── .vscode/            # Editor settings (optional)
+├── .gitignore
+├── README.md
+├── package.json
+├── next.config.mjs     # Next.js configuration
+├── postcss.config.mjs  # PostCSS configuration
+├── eslint.config.mjs   # ESLint configuration
+├── jsconfig.json       # JavaScript project configuration
+└── package-lock.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Key Directories
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **`app/`**: Utilizes Next.js App Router for routing and layout management.
+- **`components/`**: Contains modular and reusable UI components.
+- **`constant/`**: Stores static constants and configuration values.
+- **`libs/`**: Houses shared libraries and custom hooks.
+- **`utils/`**: Contains utility functions for various operations.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+### Prerequisites
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Node.js (version 16 or higher)
+- npm (version 7 or higher)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Installation
 
-## Deploy on Vercel
+1. **Clone the repository:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   git clone https://github.com/TruongCongTri/frontend-test-ver2.git
+   cd frontend-test-ver2
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server:**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser:**
+
+   Navigate to [http://localhost:3000](http://localhost:3000) to view the application.
+
+---
+
+## 🧩 Features
+
+- ✅ Next.js App Router (`app/` directory)
+- ✅ Tailwind CSS for utility-first styling
+- ✅ Modular component architecture
+- ✅ Clean and scalable project structure
+- ✅ ESLint configured for code quality
+
+---
+
+## ❓ Why Next.js (Without TypeScript)
+
+### Why Next.js?
+
+Next.js offers a robust framework for building React applications with features like:
+
+- **Server-Side Rendering (SSR)** and **Static Site Generation (SSG)**
+- **API Routes** for backend functionality
+- **Optimized performance** with automatic code splitting
+- **Built-in routing** and **image optimization**
+
+These features make Next.js an excellent choice for developing modern web applications.
+
+### Why Not TypeScript?
+
+While TypeScript provides static typing and can enhance code quality, this project opts for JavaScript to:
+
+- **Reduce complexity** for demonstration purposes
+- **Lower the learning curve** for developers new to TypeScript
+- **Focus on showcasing Next.js features** without additional overhead
+
+This decision aims to keep the project accessible and straightforward.
+
+---
+
+Made with ❤️ by [@TruongCongTri](https://github.com/TruongCongTri)
