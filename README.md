@@ -4,7 +4,7 @@ A modern frontend application built with **Next.js** (https://nextjs.org/) (App 
 
 ## 🚀 Live Demo
 
-👉 https://frontend-test-ver2.vercel.app/
+👉 https://frontend-test-ver2-mxz47634n-truongcongtris-projects.vercel.app/
 
 ---
 
