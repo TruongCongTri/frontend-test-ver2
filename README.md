@@ -1,10 +1,12 @@
-# 📦 Frontend Test
+# 📦 Backend Test Project
 
-A modern frontend application built with [Next.js](https://nextjs.org/) (App Router) and Tailwind CSS. This project serves as a demonstration of a clean, scalable architecture using the latest features of the Next.js framework.
+A modern frontend application built with **Next.js (https://nextjs.org/) (App Router) and Tailwind CSS. This project serves as a demonstration of a clean, scalable architecture using the latest features of the Next.js framework.
 
 ## 🚀 Live Demo
 
-👉 [frontend-test-ashy-ten.vercel.app](https://frontend-test-ashy-ten.vercel.app)
+👉 [frontend-test-ashy-ten.vercel.app]
+
+(https://frontend-test-ashy-ten.vercel.app)
 
 ---
 
@@ -13,7 +15,7 @@ A modern frontend application built with [Next.js](https://nextjs.org/) (App Rou
 The project is organized to promote clarity and maintainability:
 
 ```
-frontend-test/
+frontend-test-ver2/
 ├── app/                # App Router pages and layouts
 │   └── page.js         # Main entry point
 ├── components/         # Reusable UI components
@@ -42,7 +44,7 @@ frontend-test/
 
 ---
 
-## 🛠️ Getting Started
+## 🚀 How to Run
 
 ### Prerequisites
 
@@ -63,16 +65,24 @@ frontend-test/
    ```bash
    npm install
    ```
+   
+3. **Create a `.env` file** with these variables:
 
-3. **Run the development server:**
+```env
+NEXT_PUBLIC_API_BASE_LOCAL_URL=http://localhost:5000
+# Uncomment the line below if you want to use an online backend server
+# NEXT_PUBLIC_API_BASE_LOCAL_URL=https://backend-test-78ay.onrender.com
+```
+
+4. **Run the development server:**
 
    ```bash
    npm run dev
    ```
 
-4. **Open your browser:**
+5. **Open your browser:**
 
-   Navigate to [http://localhost:3000](http://localhost:3000) to view the application.
+   Navigate to [http://localhost:3000] (http://localhost:3000) to view the application.
 
 ---
 
