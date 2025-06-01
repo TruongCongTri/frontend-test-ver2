@@ -1,6 +1,6 @@
 # 📦 Backend Test Project
 
-A modern frontend application built with **Next.js (https://nextjs.org/) (App Router) and Tailwind CSS. This project serves as a demonstration of a clean, scalable architecture using the latest features of the Next.js framework.
+A modern frontend application built with **Next.js** (https://nextjs.org/) (App Router) and Tailwind CSS. This project serves as a demonstration of a clean, scalable architecture using the latest features of the Next.js framework.
 
 ## 🚀 Live Demo
 
