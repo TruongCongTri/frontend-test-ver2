@@ -53,16 +53,16 @@ frontend-test-ver2/
 
 1. **Clone the repository:**
 
-   ```bash
-   git clone https://github.com/TruongCongTri/frontend-test-ver2.git
-   cd frontend-test-ver2
-   ```
+```bash
+git clone https://github.com/TruongCongTri/frontend-test-ver2.git
+cd frontend-test-ver2
+```
 
 2. **Install dependencies:**
 
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
    
 3. **Create a `.env` file** with these variables:
 
@@ -74,13 +74,13 @@ NEXT_PUBLIC_API_BASE_LOCAL_URL=http://localhost:5000
 
 4. **Run the development server:**
 
-   ```bash
-   npm run dev
-   ```
+```bash
+npm run dev
+```
 
 5. **Open your browser:**
 
-   Navigate to [http://localhost:3000] (http://localhost:3000) to view the application.
+Navigate to [http://localhost:3000] (http://localhost:3000) to view the application.
 
 ---
 
