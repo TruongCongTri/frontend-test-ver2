@@ -4,9 +4,7 @@ A modern frontend application built with **Next.js (https://nextjs.org/) (App Ro
 
 ## 🚀 Live Demo
 
-👉 [frontend-test-ashy-ten.vercel.app]
-
-(https://frontend-test-ashy-ten.vercel.app)
+👉 https://frontend-test-ver2.vercel.app/
 
 ---
 
