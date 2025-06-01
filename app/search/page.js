@@ -48,10 +48,10 @@ export default async function SearchPage({ searchParams }) {
         </LayoutWrapper>
       </Suspense>
     );
-  } catch (err) {
-    if (err instanceof Error && err.message.includes("GitHub rate limit")) {
+  } catch (error) {
+    if (error instanceof Error && error.message.includes("GitHub rate limit")) {
       throw new Error("github rate limit hit");
     }
-    throw err; // Let other errors also bubble up to error.js
+    throw error; // Let other errors also bubble up to error.js
   }
 }

@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import ActionButton from "@/components/ui/actions/ActionButton";
 import { logout } from "@/components/actions/logout";
+import { ROUTES } from "@/libs/api/routes";
 
 export default function LogoutButton() {
   const router = useRouter();
@@ -16,7 +17,7 @@ export default function LogoutButton() {
     await logout();
 
     // Redirect
-    router.push("/login");
+    router.push(`${ROUTES.HOME.MAIN}`);
   };
 
   return (

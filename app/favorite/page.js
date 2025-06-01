@@ -42,9 +42,9 @@ export default async function FavoritePage() {
 
     return <CardList users={users} />;
   } catch (error) {
-    if (err instanceof Error && err.message.includes("GitHub rate limit")) {
+    if (error instanceof Error && error.message.includes("GitHub rate limit")) {
       throw new Error("github rate limit hit");
     }
-    throw err; // Let other errors also bubble up to error.js
+    throw error; // Let other errors also bubble up to error.js
   }
 }

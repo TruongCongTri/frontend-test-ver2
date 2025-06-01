@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { ROUTES } from "@/libs/api/routes";
 
 const PATH_TITLES = {
   "": "OTP Terminal",
@@ -61,7 +62,10 @@ export default function Breadcrumb() {
           <span className="text-[#00ff88]">{base}</span>
         ) : (
           <>
-            <Link href="/" className="text-white hover:underline">
+            <Link
+              href={`${ROUTES.HOME.MAIN}`}
+              className="text-white hover:underline"
+            >
               {base}
             </Link>
             <span className="text-white">{"> "}</span>

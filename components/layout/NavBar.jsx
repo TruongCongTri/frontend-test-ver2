@@ -10,6 +10,7 @@ import SearchDrawer from "./SearchDrawer";
 import ProfileButton from "@/components/ui/actions/ProfileButton";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { ROUTES } from "@/libs/api/routes";
 
 export default function NavBar({ isAuthenticated = false, phoneData = null }) {
   const currentPath = usePathname();
@@ -36,7 +37,7 @@ export default function NavBar({ isAuthenticated = false, phoneData = null }) {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Logo */}
           <Link
-            href="/"
+            href={`${ROUTES.HOME.MAIN}`}
             className="font-bold text-xl text-[#00ff88]"
             onClick={handleClose}
           >
@@ -116,7 +117,7 @@ export default function NavBar({ isAuthenticated = false, phoneData = null }) {
 
           <div className="flex flex-col gap-4 p-4">
             <Link
-              href="/"
+              href={`${ROUTES.HOME.MAIN}`}
               onClick={handleClose}
               className="text-white hover:text-terminalGreen"
             >
@@ -126,28 +127,34 @@ export default function NavBar({ isAuthenticated = false, phoneData = null }) {
             {isAuthenticated && (
               <>
                 <Link
-                  href="/search"
+                  href={`${ROUTES.SEARCH.SEARCH_USERS}`}
                   onClick={handleClose}
                   className={`text-white hover:text-green-600 ${
-                    currentPath.startsWith("/search") ? "text-green-600" : ""
+                    currentPath.startsWith(`${ROUTES.DASHBOARD.PROFILE}`)
+                      ? "text-green-600"
+                      : ""
                   }`}
                 >
                   Search
                 </Link>
                 <Link
-                  href="/profile"
+                  href={`${ROUTES.DASHBOARD.PROFILE}`}
                   onClick={handleClose}
                   className={`text-white hover:text-green-600 ${
-                    currentPath === "/profile" ? "text-green-600" : ""
+                    currentPath === ROUTES.DASHBOARD.PROFILE
+                      ? "text-green-600"
+                      : ""
                   }`}
                 >
                   Profile
                 </Link>
                 <Link
-                  href="/favorite"
+                  href={`${ROUTES.DASHBOARD.FAVORITE}`}
                   onClick={handleClose}
                   className={`text-white hover:text-green-600 ${
-                    currentPath === "/favorite" ? "text-green-600" : ""
+                    currentPath === ROUTES.DASHBOARD.FAVORITE
+                      ? "text-green-600"
+                      : ""
                   }`}
                 >
                   Favorite

@@ -2,6 +2,8 @@
 
 import { useRouter } from "next/navigation";
 
+import { ROUTES } from "@/libs/api/routes";
+
 export default function ProfileButton({
   country,
   countryCode,
@@ -10,7 +12,7 @@ export default function ProfileButton({
   const router = useRouter();
 
   const handleClick = () => {
-    router.push("/dashboard");
+    router.push(`${ROUTES.DASHBOARD.PROFILE}`);
   };
 
   return (
