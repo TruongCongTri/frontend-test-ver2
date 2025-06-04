@@ -3,11 +3,14 @@
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import React from "react";
+import { MAX_PER_PAGE } from "../../../constant/enum";
 
 export default function Pagination({ meta }) {
   if (!meta) return null; // prevent crash
 
   const { current_page, per_page, total_pages } = meta;
+  const safePerPage = Math.min(Number(per_page), MAX_PER_PAGE);
+  
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -27,7 +30,7 @@ export default function Pagination({ meta }) {
   };
 
   const handlePerPageChange = (e) => {
-    const newPerPage = e.target.value;
+    const newPerPage = Number(e.target.value);
     router.push(buildQuery({ page: 1, per_page: newPerPage }));
   };
 
@@ -39,7 +42,7 @@ export default function Pagination({ meta }) {
         </label>
         <select
           id="perPageSelect"
-          value={per_page}
+          value={Number(safePerPage)}
           onChange={handlePerPageChange}
           className="bg-black border border-white text-[#00ff88] px-2 py-1 rounded-sm"
         >

@@ -17,8 +17,8 @@ export default function Card({ user }) {
             className="rounded-full"
           />
         </td>
-        <td className="px-4 py-3">{user.login}</td>
-        <td className="px-4 py-3">
+        <td className="px-4 py-3 truncate whitespace-nowrap overflow-hidden">{user.login}</td>
+        <td className="px-4 py-3 truncate whitespace-nowrap overflow-hidden">
           <Link
             href={user.html_url || "#"}
             target="_blank"
@@ -29,7 +29,7 @@ export default function Card({ user }) {
             {isUnavailable ? "Unavailable" : "View"}
           </Link>
         </td>
-        <td className="px-4 py-3">
+        <td className="px-4 py-3 truncate whitespace-nowrap overflow-hidden">
           <Link
             href={user.repos_url || "#"}
             target="_blank"
@@ -40,7 +40,7 @@ export default function Card({ user }) {
             {isUnavailable ? "Unavailable" : "Repos"}
           </Link>
         </td>
-        <td className="px-4 py-3">
+        <td className="px-4 py-3 truncate whitespace-nowrap overflow-hidden">
           {isUnavailable
             ? "⚠️ Profile data unavailable"
             : `${user.followers ?? 0} followers`}
@@ -58,7 +58,7 @@ export default function Card({ user }) {
       <tr className="md:hidden border-b border-gray-800">
         <td colSpan={6} className="px-4 py-3">
           <div className="flex justify-between">
-            <div className="flex gap-3 items-center">
+            <div className="flex gap-3 items-center w-full  max-w-[160px]">
               <img
                 src={user.avatar_url}
                 alt="avatar"
@@ -67,7 +67,7 @@ export default function Card({ user }) {
                 className="rounded-full"
               />
               <div>
-                <p className="font-semibold">{user.login}</p>
+                <p className="font-semibold max-w-[160px] truncate overflow-hidden whitespace-nowrap">{user.login}</p>
                 <p className="text-xs text-gray-400">
                   {isUnavailable
                     ? "⚠️ Profile data unavailable"
@@ -75,7 +75,7 @@ export default function Card({ user }) {
                 </p>
               </div>
             </div>
-            <div className="text-xs text-right space-y-1">
+            <div className="">
               <div>
                 🔗{" "}
                 <Link
@@ -100,6 +100,8 @@ export default function Card({ user }) {
                   {isUnavailable ? "Unavailable" : "Repos"}
                 </Link>
               </div>
+            </div>
+            <div className="text-xs text-right flex items-center ">
               <LikeButton
                 githubUserId={user.id}
                 initiallyLiked={user.liked}
