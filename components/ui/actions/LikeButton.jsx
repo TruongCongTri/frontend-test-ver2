@@ -4,12 +4,16 @@ import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { likeGithubUser } from "@/libs/api/apiClient";
 
-export default function LikeButton({ githubUserId, initiallyLiked }) {
+export default function LikeButton({
+  githubUserId,
+  initiallyLiked,
+  disabled = false,
+}) {
   const [liked, setLiked] = useState(initiallyLiked);
   const [submitting, setSubmitting] = useState(false);
 
   const handleLike = async () => {
-    if (liked || submitting) return;
+    if (liked || submitting || disabled) return;
 
     const phoneNumber = localStorage.getItem("phone_number");
     if (!phoneNumber) {
@@ -31,15 +35,16 @@ export default function LikeButton({ githubUserId, initiallyLiked }) {
       setSubmitting(false);
     }
   };
+
   return (
     <div
       onClick={handleLike}
       className={`text-xl ${
-        liked || submitting
-          ? "cursor-not-allowed"
+        liked || submitting || disabled
+          ? "cursor-not-allowed opacity-60"
           : "cursor-pointer hover:scale-110 transition-transform"
       }`}
-      title={liked ? "Liked" : "Like"}
+      title={disabled ? "GitHub profile unavailable" : liked ? "Liked" : "Like"}
     >
       {liked ? (
         <svg

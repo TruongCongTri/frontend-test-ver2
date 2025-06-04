@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 
 import { requireAuth } from "@/components/actions/auth";
 import LayoutWrapper from "@/components/layout/LayoutWrapper";
@@ -10,13 +10,14 @@ import Pagination from "@/components/ui/actions/Pagination";
 import { parseSearchParams } from "@/utils/parseSearchParams";
 
 import Breadcrumb from "@/components/navigation/Breadcrumb";
-import Loading from "@/components/layout/Loading";
 
 export default async function SearchPage({ searchParams }) {
-  // check if user is authenticated
+  // Ensure authentication
   await requireAuth();
+
   const { q, page, per_page } = parseSearchParams(await searchParams);
 
+  // Handle empty query
   if (!q) {
     return (
       <LayoutWrapper>
@@ -27,31 +28,28 @@ export default async function SearchPage({ searchParams }) {
       </LayoutWrapper>
     );
   }
+
   try {
     const data = await searchGithubUsers({ q, page, per_page });
-    console.log("Search results:", data);
-    if (data.data.users[0] == null) throw new Error("github rate limit hit");
-    return (
-      <Suspense fallback={<Loading />}>
-        <LayoutWrapper>
-          <Breadcrumb />
 
-          {q && (
-            <p className="mb-2 text-sm text-gray-400">
-              Showing results for: <strong>{q}</strong>
-            </p>
-          )}
-          <div>
-            <CardList users={data.data.users} />
-            <Pagination meta={data.meta.pagination} />
-          </div>
-        </LayoutWrapper>
-      </Suspense>
+    return (
+      <LayoutWrapper>
+        <Breadcrumb />
+        <p className="mb-2 text-sm text-gray-400">
+          Showing results for: <strong>{q}</strong>
+        </p>
+
+        <CardList users={data.data.users} />
+        <Pagination meta={data.meta.pagination} />
+      </LayoutWrapper>
     );
   } catch (error) {
-    if (error instanceof Error && error.message.includes("GitHub rate limit")) {
-      throw new Error("github rate limit hit");
+    // Catch GitHub rate limit errors
+    if (error.code === 403 || error.message.includes("rate limit")) {
+      throw new Error("GitHub rate limit hit");
     }
-    throw error; // Let other errors also bubble up to error.js
+
+    // Let other errors bubble up to /error.js
+    throw error;
   }
 }

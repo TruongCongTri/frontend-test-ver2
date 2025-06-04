@@ -11,19 +11,35 @@ export async function fetchSSRFromAPI(path, options = {}) {
       "Content-Type": "application/json",
       ...(options.headers || {}),
     },
-    cache: "no-store", // disable caching for fresh data
+    cache: "no-store",
     ...options,
   });
-  if (res.status === 403) {
-    // You can either redirect or throw
-    const error = new Error("GitHub API blocked");
-    error.code = 403;
-    throw error;
-  }
-  if (!res.ok) {
-    const error = await res.text();
-    throw new Error(`Fetch error ${res.status}: ${error}`);
+
+  const contentType = res.headers.get("content-type");
+  const isJson = contentType?.includes("application/json");
+  // const responseData = isJson ? await res.json() : await res.text();
+  let responseData;
+  try {
+    responseData = isJson ? await res.json() : await res.text();
+  } catch (e) {
+    console.error("Failed to parse response:", e); // Add this for parsing errors
+    responseData = await res.text(); // Fallback to text
   }
 
-  return res.json();
+  // console.log("Raw response status:", res.status);
+  // console.log("Raw response data:", responseData);
+
+  if (!res.ok) {
+    const errorObj = new Error(
+      responseData?.message || `Fetch error ${res.status}`
+    );
+
+    errorObj.code = responseData?.statusCode || res.status;
+    errorObj.details = responseData?.error || responseData;
+    errorObj.stack = ""; // 🔇 Hide ugly stack traces in UI
+
+    throw errorObj;
+  }
+
+  return responseData;
 }

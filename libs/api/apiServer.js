@@ -7,7 +7,6 @@ import { API_ENDPOINTS } from "./endpoints";
 // GITHUB
 export const searchGithubUsers = (params) => {
   const query = new URLSearchParams(params).toString();
-  console.log(params);
 
   return fetchSSRFromAPI(
     `${API_ENDPOINTS.GITHUB.SEARCH_USERS}?q=${params.q}&page=${

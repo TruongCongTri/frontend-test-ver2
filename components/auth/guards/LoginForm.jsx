@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
@@ -10,7 +10,6 @@ import OTPInput from "@/components/form/fields/OTPInput";
 import { phoneSchema, otpSchema } from "@/libs/authValidation";
 import { transformPhoneNumber } from "@/libs/transformPhoneNumber";
 import { createAccessCode, validateAccessCode } from "@/libs/api/apiClient";
-
 import { login } from "@/components/actions/login";
 
 export default function LoginForm() {
@@ -50,7 +49,7 @@ export default function LoginForm() {
       setParsedInfo(phoneData);
       await createAccessCode({ phone_number: phoneData.withoutPlus });
 
-      toast.success(`Code sent to ${phoneData.withoutPlus}`);
+      toast.success(`Code sent to ${phoneData.withoutPlus}`, { icon: `✅` });
       setMessage(
         `✅ Code sent to ${phoneData.withoutPlus} ! Please enter it below.`
       );
@@ -59,7 +58,7 @@ export default function LoginForm() {
       setCodeExpiry(300);
       setResendCooldown(60);
     } catch (error) {
-      toast.error(error?.message || "Validation error");
+      toast.error("Validation error", { icon: <SVG /> });
       setMessage(`❌ ${error?.message || "Validation error"}`);
     } finally {
       setIsLoading(false);

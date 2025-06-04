@@ -13,16 +13,21 @@ export async function fetchCSRFromAPI(path, options = {}) {
     },
     body: options.body ? JSON.stringify(options.body) : undefined,
   });
-  if (res.status === 403) {
-    // You can either redirect or throw
-    const error = new Error("GitHub API blocked");
-    error.code = 403;
-    throw error;
-  }
+  const contentType = res.headers.get("content-type");
+  const isJson = contentType?.includes("application/json");
+  const responseData = isJson ? await res.json() : await res.text();
+
   if (!res.ok) {
-    const error = await res.text();
-    throw new Error(`Fetch error ${res.status}: ${error}`);
+    const errorObj = new Error(
+      responseData?.message || `Fetch error ${res.status}`
+    );
+
+    errorObj.code = responseData?.statusCode || res.status;
+    errorObj.details = responseData?.error || responseData;
+    errorObj.stack = ""; // 🔇 Hide ugly stack traces in UI
+
+    throw errorObj;
   }
 
-  return res.json();
+  return responseData;
 }
